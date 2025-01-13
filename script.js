@@ -93,6 +93,15 @@ mainBox.addEventListener("click", (e) => {
     saveButtonListener(e);
   }
 });
+mainBox.addEventListener("keydown", (e) => {
+  if (e.key == "Enter") {
+    const container = e.target.closest(".task-container");
+    const inputTag = container?.querySelector(".input-text");
+    if (inputTag && e.target === inputTag) {
+      saveButtonListener(e);
+    }
+  }
+});
 
 inputBox.addEventListener("keydown", (e) => {
   if (e.key == "Enter" && inputBox.value.trim() !== "") {
